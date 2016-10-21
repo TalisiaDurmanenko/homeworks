@@ -1,0 +1,90 @@
+//Создать форму с полями username, email, message. Сериализовать данные, полученные при отправке формы и вывести полученную строку на экран.
+<form action="index.php" method="post">
+  Enter username <input type="text" name="username"/><br>
+  Enter email <input type="text" name="email"/><br>
+  Enter message <input type="text" name="message"/><br>
+  <input type="submit"/><br>
+</form>
+<?php
+// print_r($_POST);
+$ser = serialize($_POST);
+print_r($ser);
+echo '<br>';
+$unser = unserialize($ser);
+print_r($unser);
+
+
+// Вывести на экран true/false в зависимости о того, делится переменная $x на 2 или нет.
+$x = 5;
+$y = 5 % 2;
+settype($y, 'bool');
+var_dump(!$y);
+
+
+// Создать алгоритм определения всех простых чисел в промежутке от 1 до 100 при помощи while. Простое число - это число которое делится только на себя и на 1
+// Виводяться непарні, а не прості. Що я роблю не так?
+$i = 2;
+while ($i <= 100) {
+  $j = 2;
+  while ($j < $i) {
+    if ($i % $j == 0) {
+	break;
+    } else echo $i.' ';
+    break;
+    $j++;	
+  }
+  $i++;
+}
+
+// Создать массив из 10 любых числовых значений. При помощи foreach вывести на экран те значения, которые делятся на 3
+$arra = array(
+    'first'  => 1,
+    'second' => 2,
+    'third'  => 3,
+    'fourth' => 4,
+    'fifth'  => 5,
+  	'sixth'  => 6,
+  	'seventh' => 7,
+  	'eigth'  => 8,
+  	'ninth'  => 9,
+  	'tenth' => 10
+);
+foreach ($arra as $v) {
+  if($v % 3 == 0) {
+    echo $v;
+  }
+}
+
+// Создать алгоритм для определения первого найденного простого числа в промежутке от 200 до 400.
+// Чому додавання дужок {} в 68 та 71 рядках призводить до того, що нічого не виводиться?
+// Як припинити цикл після першого знайденого числа?
+<?php
+$sign = true;
+for ($i = 200; $i <= 400; $i++) {
+  for ($j = 2; $j < $i; $j++) {
+    if ($i % $j == 0) {
+          $sign = false;
+          break;
+    }
+  } 
+  if ($sign) 
+    echo "Check for {$i} ... ".'gotcha! <br>';
+	$sign = true;
+   
+}
+
+//Как можно упростить функцию test() в данном скрипте?
+//Власне, як?
+<?php
+function test($x, $y)
+{
+	if ($y == 0) {
+		return false;
+	}
+
+	return $x / $y;
+
+}
+
+echo test(1, 0) or die('Error');
+echo 'Unreached line';

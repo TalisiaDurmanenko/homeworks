@@ -10,7 +10,7 @@
 <body>
     <header>
         <nav>
-                <ul>
+             <ul>
 
             <?php
             function getMenu()
@@ -32,7 +32,7 @@
 
 
             <?php endforeach; ?>
-                </ul>
+             </ul>
         </nav>
     </header>
 </body>
