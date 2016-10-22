@@ -5,7 +5,7 @@
 
 $arr = array(2, 5, 9, 15, 0, 4);
 foreach($arr as $item) {
-    if (($item < 10 )AND ($item > 3)) {
+    if (($item < 10 ) AND ($item > 3)) {
         echo $item . "<br>";
     }
 }
