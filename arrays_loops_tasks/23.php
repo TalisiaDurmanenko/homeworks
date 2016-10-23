@@ -4,8 +4,11 @@
 2, 3, т. е. 6.*/
 
 
-$x = "65765";
-
+$x = "34565";
+/*if(is_string($x) !== "true"){
+    echo "Mistake";*/
+// Як перевірити коректність даних?
+}
 $sum = 0;
 
 for($i = 0; $i <= strlen($x); $i++) {
@@ -14,3 +17,4 @@ for($i = 0; $i <= strlen($x); $i++) {
 
 echo "$x<br>";
 echo $sum;
+// Notice: Uninitialized string offset: 5 in C:\xampp\htdocs\homeworks\arrays_loops_tasks\23.php on line 14
