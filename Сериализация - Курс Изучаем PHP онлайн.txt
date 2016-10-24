@@ -5,6 +5,7 @@
   Enter message <input type="text" name="message"/><br>
   <input type="submit"/><br>
 </form>
+
 <?php
 // print_r($_POST);
 $ser = serialize($_POST);

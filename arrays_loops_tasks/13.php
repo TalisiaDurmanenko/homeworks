@@ -1,23 +1,5 @@
-<<<<<<< HEAD
 <?php
-//Вывести таблицу умножения
-
-$i = 1;
-$result = null;
-while($i <= 9){
-    $j = 1;
-    while($j <= 9){
-        $result = $i * $j;
-        echo "{$result} ";
-        $j++;
-    }
-    echo "<br>";
-    $i++;
-}
-=======
-<?php
-//Вывести таблицу умножения
-
+// Вывести таблицу умножения
 $i = 1;
 $result = null;
 echo "<table>";
@@ -46,4 +28,4 @@ for($i = 1; $i <= 9; $i++) {
     echo "</tr>";
 }
 echo "</table>";
->>>>>>> 1937558703ec782ebdc56f6abe92c2a3b3d20042
+
