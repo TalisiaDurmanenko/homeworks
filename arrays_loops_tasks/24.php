@@ -3,15 +3,20 @@
 какой­нибуть выбранной вами цифры в выбранном вами числе. Например: цифра 5 в числе
 442158755745 встречается 4 раза.*/
 
-$x = "442158755745";
+$a = "425553555532553"; //число
+$x = 5; // вьібранная цифра
+$j = 0; // количество вхождений
 
-$sum = 0;
+for($i = 0; $i <= strlen($a); $i++) { // strlen() повертає довжину рядка
 
-for($i = 0; $i <= strlen($x); $i++) {
-
-    $array = array($x[$i]);
-    var_dump($array);
+    $array = array($a[$i]); // Notice: Uninitialized string offset: 15 in C:\xampp\htdocs\homeworks\arrays_loops_tasks\24.php on line 12
+    foreach($array as $number){
+        if ($number == $x) {
+            $j = $j + 1;
+        }
+        else
+            continue;
+    }
 }
 
-echo "$x<br>";
-echo $sum;
+echo "Цифра \"{$x}\" в числі {$a} зустрічається {$j} раз";
