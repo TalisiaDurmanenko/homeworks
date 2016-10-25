@@ -15,7 +15,7 @@ for($i = 1; $i <= 9; $i++){
 
 foreach($pyramid as $item){
     $x .= $item;
-    echo "$x <br>";
+    echo "$x<br>";
 };
 
 echo "<br>";
