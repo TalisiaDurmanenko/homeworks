@@ -22,8 +22,17 @@ foreach($array as $output) {
 fclose($text);
 
 $x = fopen('test.txt', 'r');
-$read = fread($x, 35); // перші 35 символів файла
+$read = fread($x, 35); // перші 35 байтів файла
 echo $read;
 
 $read = file_get_contents('test.txt'); // зміст файла
 echo $read;
+
+
+$a = fopen("te.txt", "w");
+flock($a, LOCK_SH); // lock
+fwrite($a, "Yo, lock me");
+//flock($a, LOCK_UN); // unlock
+fclose($a);
+
+unlink("te.txt"); // delete
