@@ -3,18 +3,22 @@
 пользователем. Например: есть число 123, то программа должна вычислить сумму цифр 1,
 2, 3, т. е. 6.*/
 
+/* В вашому коді значення $x надається без лапок, але в такому випадку не діє strlen($x).
+Перевірка даних діє в обох випадках, але помилка (рядок 23) все одно з'являється.*/
 
-$x = "34565";
-/*if(is_string($x) !== "true"){
-    echo "Mistake";*/
-// Як перевірити коректність даних?
+$x = "3545365";
+
+if(is_int($x) !== true){
+    echo "Mistake";
 }
-$sum = 0;
 
+
+$sum = 0;
 for($i = 0; $i <= strlen($x); $i++) {
     $sum += $x[$i];
 }
 
 echo "$x<br>";
-echo $sum;
-// Notice: Uninitialized string offset: 5 in C:\xampp\htdocs\homeworks\arrays_loops_tasks\23.php on line 14
+echo "$sum<br>";
+// Notice: Uninitialized string offset: 5 in C:\xampp\htdocs\homeworks\arrays_loops_tasks\23.php on line 16
+
