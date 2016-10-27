@@ -33,7 +33,7 @@ function secondFunction(){
     echo 'You called ' . __FUNCTION__ . ' function.' . PHP_EOL;
 };
 $functionName = 'secondfunction'; // функції в php регістронезалежні: secondFunction і 'secondfunction'
-$functionName(); //You called secondFunction function.
+ ); //You called secondFunction function.
 
 // приклади функції:
 function makeDrink($drink) {
