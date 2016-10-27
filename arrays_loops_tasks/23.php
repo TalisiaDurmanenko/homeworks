@@ -29,3 +29,4 @@ $sum = array_sum($array);
 echo "$x<br>";
 echo "$sum<br>";
 
+

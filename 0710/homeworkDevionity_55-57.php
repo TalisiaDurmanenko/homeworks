@@ -36,3 +36,4 @@ fwrite($a, "Yo, lock me");
 fclose($a);
 
 unlink("te.txt"); // delete
+
