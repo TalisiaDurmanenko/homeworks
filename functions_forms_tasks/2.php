@@ -13,24 +13,26 @@
 
     // Создать форму с элементом textarea. При отправке формы скрипт должен выдавать ТОП3 длинных слов в тексте. Реализовать с помощью функции.
     $text = $_POST;
-    print_r($text);
-    $length = 0;
-    function getCommonWords($colors)
-    {
-        $a = $text["text"];
-        $words = explode(" ", $a);// повертає масив зі змісту рядку, розділення пробілами
 
-        foreach($wordsTop as $item)
+    function getCommonWords($text)
+    {
+        $words = explode(" ", $text);// повертає масив зі змісту рядку, розділення пробілами
+
+        foreach($words as $item)
         {
-            $length = mb_strlen($item);
-            echo $length;
+            $lengths[] = mb_strlen($item); // створює новий масив, в якості значень - довжина слів з масиву $words
+        }
+        echo "ТОП3:";
+        echo "<br>";
+        for($i = 1; $i <= 3; $i++)
+        {
+            $max = max($lengths); // знаходить масксимальне значення массиву
+            $keyMax = array_search($max, $lengths); // знаходить ключ цього значення в масиві з довжиною слів $lengths
+            echo($words[$keyMax]); // виводить значення (слово) з цим ключем з масиву $words
+            echo "<br>";
+            unset($lengths[$keyMax]); // видаляє максимальне значення з масиву з довжиною слів $lengths
 
         }
-
-        $top3 = implode(", ", $wordsTop); // об'єднує елементи масиву в рядок, розділює комами
-
-        echo "ТОП3: {$top3}";
-
     }
 
     getCommonWords($text);
