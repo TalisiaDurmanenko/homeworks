@@ -17,14 +17,11 @@
     Реализацию это логики необходимо поместить в функцию getCommonWords($a, $b),
     которая будет возвращать массив с общими словами.*/
 
-    $colors = $_POST;
-    function getCommonWords($colors)
-    {
-        $a = $colors["colors_1"];// розбиває масив на змінні  a, b
-        $b = $colors["colors_2"];
 
-        $array_1 = explode(" ", $a);// повертає масив зі змісту рядку, розділення пробілами
-        $array_2 = explode(" ", $b);
+    function getCommonWords($x, $y)
+    {
+        $array_1 = explode(" ", $x);// повертає масив зі змісту рядку, розділення пробілами
+        $array_2 = explode(" ", $y);
 
         $arrays = array_intersect($array_1, $array_2);// зводить два масивів в один, залишаються тільки спільні значення
 
@@ -32,10 +29,13 @@
 
         echo "Збігаються наступні кольори: {$result}";
 
-    }
+    };
 
-    getCommonWords($colors);
+    $colors = $_POST;
+    $a = $colors["colors_1"];// розбиває масив на змінні  a, b
+    $b = $colors["colors_2"];
 
+    getCommonWords($a, $b);
     ?>
 
 
