@@ -1,29 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Задачи по функциям и формам</title>
-</head>
-<body>
-<form action="test.php" method="post">
-    <textarea type="text" name="colors_1">Введіть кольори через пробіл</textarea><br>
-    <textarea type="text" name="colors_2">Введіть кольори через пробіл</textarea><br>
-    <input type="submit"/><br>
-</form>
+
 <?php
-$colors = $_POST;
-$a = $colors["colors_1"];// розбиває масив на змінні  a, b
-$b = $colors["colors_2"];
 
-$array_1 = explode(" ", $a);// повертає масив зі змісту рядку, розділення пробілами
-$array_2 = explode(" ", $b);
 
-$arrays = array_intersect($array_1, $array_2);// зводить два масивів в один, залишаються тільки спільні значення
+/*Написать функцию, которая считает количество уникальных слов в тексте.
+ Слова разделяются пробелами. Слов. Текст должен вводиться с формы.*/
+$x = "a васька слушает да ест. а воз и ныне там. а вы друзья как ни садитесь, все в музыканты не годитесь. а король-то — голый. а ларчик просто открывался. а там хоть трава не расти.";
+$wordsAr = explode(". ", $x); // повертає масив, значення якого становлять речення тексту
 
-$result = implode(", ", $arrays); // об'єднує елементи масиву в рядок, розділює комами
+print_r($wordsAr);
+echo "34<br>";
+/*foreach($wordsAr as $sentence){
+    mb_internal_encoding("UTF-8");
+    $Sentence = ucfirst($sentence);
+    //$sentence = mb_strtoupper(mb_substr($sentence, 0, 1, 'UTF-8'), 'UTF-8');
+   //$sentence = mb_substr($sentence, 1, mb_strlen($sentence), 'UTF-8');
+    echo "$Sentence<br>";
+}*/
 
-echo "Збігаються наступні кольори: {$result}";
+for($i=0; $i <= count($wordsAr); $i++){
+    mb_internal_encoding("UTF-8");
+    $wordsAr[$i] = ucfirst($wordsAr);
+    echo $wordsAr[$i];
+    echo "<br>";
+}
+//mb_strtoupper(mb_substr($sentence, 0, 1, 'UTF-8'), 'UTF-8')
+//mb_substr(sentence, 1, mb_strlen($sentence), 'UTF-8');
 ?>
-</body>
-</html>
 
