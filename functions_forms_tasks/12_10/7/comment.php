@@ -18,3 +18,10 @@ if(!$body || !$username || !$email) {
     redirect('7_l.php');
 }
 
+$data = compact(['username','email','date','body']);
+$storageData = prepareDataForStorage($data);
+saveToFile($storageData);
+redirect('7_l.php');
+
+
+
