@@ -5,19 +5,22 @@
     <title>Задачи по функциям и формам</title>
 </head>
 <body>
-<form action="2.php" method="post">
+<form action="" method="post">
     <textarea type="text" name="text">Введіть текст</textarea><br>
     <input type="submit"/><br>
 </form>
     <?php
 
     // Создать форму с элементом textarea. При отправке формы скрипт должен выдавать ТОП3 длинных слов в тексте. Реализовать с помощью функции.
-    $text = $_POST;
+    $text = $_POST['text'];
+    print_r($text);
+    $words = str_word_count($text, 1);
+    print_r($words);
 
     function getCommonWords($text)
     {
-        $words = explode(" ", $text);// повертає масив зі змісту рядку, розділення пробілами
 
+        //$words = explode(" ", $text);// повертає масив зі змісту рядку, розділення пробілами
         foreach($words as $item)
         {
             $lengths[] = mb_strlen($item); // створює новий масив, в якості значень - довжина слів з масиву $words

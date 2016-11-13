@@ -6,8 +6,8 @@
 </head>
 <body>
 <form action="1.php" method="post">
-    <textarea type="text" name="colors_1">Введіть кольори через пробіл</textarea><br>
-    <textarea type="text" name="colors_2">Введіть кольори через пробіл</textarea><br>
+    <textarea type="text" name="colors_1" placeholder="Введіть кольори через пробіл"></textarea><br>
+    <textarea type="text" name="colors_2" placeholder="Введіть кольори через пробіл"></textarea><br>
     <input type="submit"/><br>
 </form>
     <?php
