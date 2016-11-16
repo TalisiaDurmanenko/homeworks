@@ -15,17 +15,20 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<?php
-    $file = file_get_contents('badwords.txt');
-    echo $file;
 
-?>
-<section>
-    <form action="" method="post">
+<form action = "" method="POST">
+    <textarea rows = "20" cols = "100" name="text"><?php
+        if ($_POST) {
+            file_put_contents("badwords.txt",$_POST['text']);
+            header ("Location: form.php");
+            exit;
+        }
+        $text = htmlspecialchars(file_get_contents("badwords.txt"));
 
-        <input type="submit" value="Send">
-    </form>
-</section>
+        echo $text
+        ?></textarea>
+    <input type="submit">
+</form>
 
 </body>
 </html>
