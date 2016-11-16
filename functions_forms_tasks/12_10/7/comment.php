@@ -6,7 +6,7 @@
 require 'common.php';
 
 if(empty($_POST)){
-    return('7_l.php');
+    header('Location: index.php');
 }
 
 $body = !empty($_POST['comment']) ? $_POST['comment'] : null;
@@ -15,13 +15,15 @@ $email = !empty($_POST['email']) ? $_POST['email'] : null;
 $date = date('Y-m-d H:i');
 
 if(!$body || !$username || !$email) {
-    redirect('7_l.php');
+    header('Location: index.php');
 }
+
+$body = processCommentBody($body);
 
 $data = compact(['username','email','date','body']);
 $storageData = prepareDataForStorage($data);
 saveToFile($storageData);
-redirect('7_l.php');
+header('Location: index.php');
 
 
 
