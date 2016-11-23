@@ -49,11 +49,11 @@ function isUserAuthorized()
 }
 
 /**
- * Returns '$param" parametr value from 'requestArray'
- * @param array $requestArray
- * @param $param
- * @param null $default
- * @return mixed|null
+ * Returns '$param" parameter value from 'requestArray'
+ * @param   array     $requestArray   Request array.
+ * @param   string    $param          Parameter name.
+ * @param   mixed     $default        Default values if parameter does not exist
+ * @return  mixed
  */
 function getParamsFromRequest(array $requestArray, $param, $default = null)
 {
