@@ -1,26 +1,12 @@
-
 <?php
-
-
-/*Написать функцию, которая считает количество уникальных слов в тексте.
- Слова разделяются пробелами. Слов. Текст должен вводиться с формы.*/
-
-
-function upper($x){
-    $wordsAr = explode(". ", $x); // повертає масив, значення якого становлять речення тексту
-
-    foreach($wordsAr as $sentence){
-        mb_internal_encoding("UTF-8"); // не знаю, що це але без цього з кирилецею не працює
-        //$Sentence = ucfirst($sentence); //чомусь не вдалося зробити за допомогою цієї функції з кириличним текстом
-        $litera = mb_strtoupper(mb_substr($sentence, 0, 1)); // робить великою першу літеру
-        $sentence = $litera . mb_substr($sentence, 1, mb_strlen($sentence)); // з'єднує велику першу літеру з іншим
-        $WordsAr[] = $sentence; // додає нове речення з великою літерою останнім елементом масиву
-    }
-    $words = implode(". ", $WordsAr); // повертає рядок зі значень масиву, розділяючи крапкою і пробілом
-    echo($words);
+if (!isset($_SERVER['PHP_AUTH_USER'])) {
+    header('WWW-Authenticate: Basic realm="My Realm"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'Текст, отправляемый в том случае,
+    если пользователь нажал кнопку Cancel';
+    exit;
+} else {
+    echo "<p>Hello {$_SERVER['PHP_AUTH_USER']}.</p>";
+    echo "<p>Вы ввели пароль {$_SERVER['PHP_AUTH_PW']}.</p>";
 }
-
-$text = array("а васька слушает да ест. а воз и ныне там. а вы друзья как ни садитесь, все в музыканты не годитесь. а король-то — голый. а ларчик просто открывался.");
-upper($text[0]);
 ?>
-
