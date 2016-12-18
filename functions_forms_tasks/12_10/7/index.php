@@ -16,46 +16,71 @@
 </head>
 <body>
 <section>
-<form action="comment.php" method="post">
-    <label for="comment.php">Comment body</label><br>
-    <textarea name="comment" rows="8" cols="40" required="true"></textarea>
-    <br><br>
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username" required="true">
-    <br><br>
-    <label for="email">E-mail</label>
-    <input type="email" name="email" required="true">
-    <br><br>
-    <input type="submit" value="Send">
-</form>
+    <div class="row">
+        <div class = "col-md-8">
+            <?php
+            require 'common.php';
+
+            $comments = getComments();
+            if(!empty($comments)) {
+                echo '<ol>';
+                foreach ($comments as $key => &$entry):
+                    ?>
+                    <li>
+                    <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+
+                                    Date: <?= $entry['date'] ?>
+                                    User: <?= prepareOutput($entry['username']) ?>
+                                    E-mail: <?= prepareOutput($entry['email']) ?><br>
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                Comment: <?= prepareOutput($entry['body']) ?><br>
+
+                            </div>
+                    </li>
+
+                    <?php
+                endforeach;
+                unset($entry); // якщо змінна була передана за посиланням, після foreach її треба знищити
+                echo '</ol>';
+
+            } else {
+                echo "<h3>No comments have been added yet.</h3>";
+            }
+
+
+            ?>
+        </div>
+    </div>
 </section>
-<section></section>
-<?php
-require 'common.php';
+<section>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <form class="form-inline" action="comment.php" method="post">
+                    <label for="comment.php">Comment body</label><br>
+                    <textarea name="comment" rows="8" cols="80" required="true"></textarea>
+                    <br><br>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" required="true">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" required="true">
+                </div>
+                    <input type="submit" value="Send" class="btn btn-default">
 
-$comments = getComments();
-if(!empty($comments)) {
-    echo '<ol>';
-    foreach ($comments as $key => &$entry):
-?>
-    <li>
-        Date: <?= $entry['date'] ?><br>
-        User: <?= prepareOutput($entry['username']) ?><br>
-        E-mail: <?= prepareOutput($entry['email']) ?><br>
-        Comment: <?= prepareOutput($entry['body']) ?><br>
-    </li>
+            </form>
+        </div>
 
-<?php
-    endforeach;
-    unset($entry); // якщо змінна була передана за посиланням, після foreach її треба знищити
-    echo '</ol>';
-
-} else {
-    echo "<h3>No comments have been added yet.</h3>";
-}
+    </div>
 
 
-?>
 </section>
+
 </body>
 </html>
